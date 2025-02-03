@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 @DiscriminatorColumn(name="product_type")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public abstract class Product{
 
     @Id

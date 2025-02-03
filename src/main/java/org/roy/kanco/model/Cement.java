@@ -7,9 +7,6 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @DiscriminatorValue("CEMENT")
-@Builder
 public class Cement extends Product {
 }

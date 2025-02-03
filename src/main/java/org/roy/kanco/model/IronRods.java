@@ -9,9 +9,6 @@ import lombok.*;
 @DiscriminatorValue("IRON_RODS")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class IronRods extends Product{
 
 }

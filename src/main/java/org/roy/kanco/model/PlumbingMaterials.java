@@ -8,8 +8,5 @@ import lombok.*;
 @DiscriminatorValue("PLUMBING_MATERIALS")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class PlumbingMaterials extends Product{
 }

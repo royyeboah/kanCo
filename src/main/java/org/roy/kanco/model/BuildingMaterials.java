@@ -8,9 +8,6 @@ import lombok.*;
 @DiscriminatorValue("BUILDING_MATERIALS")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class BuildingMaterials extends Product{
 
     @Column(nullable = false)

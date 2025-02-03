@@ -10,10 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @DiscriminatorValue("CHEMICALS")
-@Builder
 public class Chemicals extends Product{
 
     private String chemicalType;

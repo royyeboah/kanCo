@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.roy.kanco.dto.AuthResponseDTO;
 
+import java.util.Collections;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -33,7 +35,7 @@ public class AuthController {
     private final JwtGenerator jwtGenerator;
 
     @Autowired
-    private AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, PasswordEncoder passwordEncoder, JwtGenerator jwtGenerator) {
+    public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, PasswordEncoder passwordEncoder, JwtGenerator jwtGenerator) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -47,14 +49,15 @@ public class AuthController {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             loginDTO.getUsername(),
-                            loginDTO.getPassword()));
+                            loginDTO.getPassword(),
+                            Collections.emptyList()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtGenerator.generateToken(authentication);
             return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
         } catch (BadCredentialsException e){
             return new ResponseEntity<>("Invalid username or password", HttpStatus.UNAUTHORIZED);
         } catch(Exception e){
-            return new ResponseEntity<>("An error occurred during login: "+e.getCause(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("An error occurred during login: "+e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

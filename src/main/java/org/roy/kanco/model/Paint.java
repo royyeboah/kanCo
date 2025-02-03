@@ -8,9 +8,6 @@ import lombok.*;
 @DiscriminatorValue("PAINT")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Paint extends Product{
 
     private Color color;

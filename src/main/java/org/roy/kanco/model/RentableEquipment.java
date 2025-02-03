@@ -8,9 +8,6 @@ import lombok.*;
 @DiscriminatorValue("EQUIPMENT")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class RentableEquipment extends Product{
 
     private Double rentalRate;

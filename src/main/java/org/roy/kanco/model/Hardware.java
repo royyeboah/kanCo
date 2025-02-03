@@ -10,10 +10,5 @@ import lombok.*;
 @DiscriminatorValue("HARDWARE")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Hardware extends Product{
-
-
 }
