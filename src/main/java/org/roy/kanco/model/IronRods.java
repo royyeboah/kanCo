@@ -11,4 +11,6 @@ import lombok.*;
 @Setter
 public class IronRods extends Product{
 
+    private Double length;
+    private Double thickness;
 }

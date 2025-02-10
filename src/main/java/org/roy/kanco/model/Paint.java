@@ -2,6 +2,8 @@ package org.roy.kanco.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 @Entity
@@ -10,16 +12,18 @@ import lombok.*;
 @Setter
 public class Paint extends Product{
 
+    @Enumerated(EnumType.STRING)
     private Color color;
 
-    private enum Color {
-        RED,
-        ORANGE,
-        YELLOW,
-        GREEN,
-        BLUE,
-        INDIGO,
-        VIOLET
-    }
+}
 
+enum Color {
+    RED,
+    ORANGE,
+    YELLOW,
+    GREEN,
+    BLUE,
+    INDIGO,
+    VIOLET,
+    WHITE
 }
